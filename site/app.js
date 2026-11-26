@@ -343,7 +343,7 @@
             .map(
               (g) => `
             <button type="button" class="shot-card" data-shot-src="${esc(g.src)}" data-shot-cap="${esc(g.cap)}">
-              <img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy" decoding="async" />
+              <img src="${esc(g.src)}" alt="${esc(g.cap)}" decoding="async" />
               <div class="shot-cap">${esc(g.cap)}</div>
             </button>`
             )
@@ -392,7 +392,7 @@
             .map(
               (g) => `
             <button type="button" class="shot-card" data-shot-src="${esc(g.src)}" data-shot-cap="${esc(g.cap)}">
-              <img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy" decoding="async" />
+              <img src="${esc(g.src)}" alt="${esc(g.cap)}" decoding="async" />
               <div class="shot-cap">${esc(g.cap)}</div>
             </button>`
             )
@@ -431,7 +431,7 @@
             .map(
               (g) => `
             <button type="button" class="shot-card" data-shot-src="${esc(g.src)}" data-shot-cap="${esc(g.cap)}">
-              <img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy" decoding="async" />
+              <img src="${esc(g.src)}" alt="${esc(g.cap)}" decoding="async" />
               <div class="shot-cap">${esc(g.cap)}</div>
             </button>`
             )
