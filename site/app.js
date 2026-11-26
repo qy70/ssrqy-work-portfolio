@@ -258,19 +258,23 @@
         </div>
 
         <div class="panel">
-          <div class="tab-bar" role="tablist">
-            ${t.thesis.tabs
-              .map(
-                (tab) => `
-              <button type="button" role="tab" class="tab-btn ${state.thesisTab === tab.id ? 'active' : ''}" data-thesis-tab="${esc(tab.id)}">
-                ${esc(tab.label)}
-              </button>`
-              )
-              .join('')}
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;">
+            <div class="tab-bar" role="tablist" style="margin-bottom:0;">
+              ${t.thesis.tabs
+                .map(
+                  (tab) => `
+                <button type="button" role="tab" class="tab-btn ${state.thesisTab === tab.id ? 'active' : ''}" data-thesis-tab="${esc(tab.id)}">
+                  ${esc(tab.label)}
+                </button>`
+                )
+                .join('')}
+            </div>
+            <a class="btn-secondary" href="${esc(t.thesis.repoUrl)}" target="_blank" rel="noopener">${esc(t.thesis.repoLabel)}</a>
           </div>
 
           <div class="thesis-grid">
             <div class="svg-box">
+              <div class="svg-scroll-hint">${state.lang === 'en' ? '← Swipe horizontally to view full diagram →' : '← 左右滑动查看完整架构图 →'}</div>
               ${renderThesisSvg(state.lang, state.thesisTab)}
               <div style="margin-top:8px;font-size:12px;color:var(--text-soft);text-align:center;">
                 ${esc(curThesis.svgCaption)}
@@ -315,7 +319,10 @@
           <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px;">
             ${esc(t.ta.diagramTitle)}
           </div>
-          <div class="svg-box">${renderTaSvg(state.lang)}</div>
+          <div class="svg-box">
+            <div class="svg-scroll-hint">${state.lang === 'en' ? '← Swipe horizontally to view full diagram →' : '← 左右滑动查看完整架构图 →'}</div>
+            ${renderTaSvg(state.lang)}
+          </div>
         </div>
 
         <div class="tradeoffs-grid">
@@ -336,7 +343,7 @@
             .map(
               (g) => `
             <button type="button" class="shot-card" data-shot-src="${esc(g.src)}" data-shot-cap="${esc(g.cap)}">
-              <img src="${esc(g.src)}" alt="${esc(g.cap)}" />
+              <img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy" decoding="async" />
               <div class="shot-cap">${esc(g.cap)}</div>
             </button>`
             )
@@ -352,13 +359,19 @@
             <h2 class="sec-title">${esc(t.workbench.title)}</h2>
             <p class="sec-desc">${esc(t.workbench.desc)}</p>
           </div>
+          <div class="hero-actions">
+            <a class="btn-secondary" href="${esc(t.workbench.repoUrl)}" target="_blank" rel="noopener">${esc(t.workbench.repoLabel)}</a>
+          </div>
         </div>
 
         <div class="panel">
           <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px;">
             ${esc(t.workbench.diagramTitle)}
           </div>
-          <div class="svg-box">${renderWorkbenchSvg(state.lang)}</div>
+          <div class="svg-box">
+            <div class="svg-scroll-hint">${state.lang === 'en' ? '← Swipe horizontally to view full diagram →' : '← 左右滑动查看完整架构图 →'}</div>
+            ${renderWorkbenchSvg(state.lang)}
+          </div>
         </div>
 
         <div class="tradeoffs-grid">
@@ -379,7 +392,7 @@
             .map(
               (g) => `
             <button type="button" class="shot-card" data-shot-src="${esc(g.src)}" data-shot-cap="${esc(g.cap)}">
-              <img src="${esc(g.src)}" alt="${esc(g.cap)}" />
+              <img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy" decoding="async" />
               <div class="shot-cap">${esc(g.cap)}</div>
             </button>`
             )
@@ -418,7 +431,7 @@
             .map(
               (g) => `
             <button type="button" class="shot-card" data-shot-src="${esc(g.src)}" data-shot-cap="${esc(g.cap)}">
-              <img src="${esc(g.src)}" alt="${esc(g.cap)}" />
+              <img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy" decoding="async" />
               <div class="shot-cap">${esc(g.cap)}</div>
             </button>`
             )
@@ -486,12 +499,18 @@
     document.querySelectorAll('[data-shot-src]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const lb = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
+        const media = document.getElementById('lightbox-media');
         const cap = document.getElementById('lightbox-cap');
-        img.src = btn.dataset.shotSrc;
-        img.alt = btn.dataset.shotCap || '';
-        cap.textContent = btn.dataset.shotCap || '';
-        lb.classList.remove('hidden');
+        if (media) {
+          media.innerHTML = '';
+          const img = document.createElement('img');
+          img.id = 'lightbox-img';
+          img.src = btn.dataset.shotSrc;
+          img.alt = btn.dataset.shotCap || '';
+          media.appendChild(img);
+        }
+        if (cap) cap.textContent = btn.dataset.shotCap || '';
+        lb?.classList.remove('hidden');
       });
     });
 
@@ -523,12 +542,17 @@
   });
 
   const lb = document.getElementById('lightbox');
-  document.getElementById('lightbox-close')?.addEventListener('click', () => lb?.classList.add('hidden'));
+  function closeLightbox() {
+    lb?.classList.add('hidden');
+    const media = document.getElementById('lightbox-media');
+    if (media) media.innerHTML = '';
+  }
+  document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
   lb?.addEventListener('click', (e) => {
-    if (e.target === lb) lb.classList.add('hidden');
+    if (e.target === lb) closeLightbox();
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') lb?.classList.add('hidden');
+    if (e.key === 'Escape') closeLightbox();
   });
 
   render();

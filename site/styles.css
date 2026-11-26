@@ -432,6 +432,10 @@ button {
   display: block;
 }
 
+.svg-scroll-hint {
+  display: none;
+}
+
 .bullet-list {
   margin: 0;
   padding: 0;
@@ -809,6 +813,13 @@ button {
 
 /* 手机端：架构图保持可读字号，容器内横向滑动 */
 @media (max-width: 760px) {
+  .svg-scroll-hint {
+    display: block;
+    font-size: 11px;
+    color: var(--text-soft);
+    text-align: right;
+    margin-bottom: 6px;
+  }
   .svg-box svg[viewBox^="0 0 920"] { min-width: 720px; }
   .svg-box svg[viewBox^="0 0 640"] { min-width: 540px; }
 }

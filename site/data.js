@@ -39,6 +39,8 @@ window.AI_PORTFOLIO_DATA = {
       desc: 'Instead of diluting attention by stuffing full history or unranked vector chunks into one bloated prompt, I externalize canonical state locally and expose a compact directory map on pass one.',
       legendLlm: 'Stateless Semantic Reasoning Engine (Intent & Selection)',
       legendTool: 'Deterministic Tooling & Externalized State (Ledger, Auth, Anchors)',
+      repoLabel: 'Reference Code (GitHub) ↗',
+      repoUrl: 'https://github.com/qy70/directory-first-retrieval',
       tabs: [
         { id: 'directory', label: 'My Approach: Directory-First Two-Pass' },
         { id: 'naive', label: 'Vs. Naive Prompt Stuffing / Blind RAG' },
@@ -121,6 +123,8 @@ window.AI_PORTFOLIO_DATA = {
       kicker: '03 · ENTERPRISE TOOL / LLM DECOUPLING',
       title: 'AI Ops Workbench (v1.5.0) — Human-in-the-Loop & Zero-Hallucination Ledger',
       desc: 'A production-grade Electron + SQLite (schema v22) + DeepSeek-Harness desktop system engineered for high-stakes commercial operations—demonstrating a strict boundary between code-owned ledgers and read-only AI assistance.',
+      repoLabel: 'Ledger Reference Code (GitHub) ↗',
+      repoUrl: 'https://github.com/qy70/integer-cent-ledger',
       diagramTitle: 'Hard Architectural Boundary: Deterministic Engine vs. Semantic Assistant',
       tradeoffs: [
         {
@@ -165,8 +169,8 @@ window.AI_PORTFOLIO_DATA = {
           title: 'Context Governance & Multi-Agent Orchestration',
           badge: 'AGENTS.MD · 5 AI RUNTIMES',
           body: 'Orchestrates daily architecture, code synthesis, research, and automated QA across Antigravity, Codex, DeepSeek-Harness, Grokbot, and WorkBuddy—governed by AGENTS.md protocols, 3-file topic KBs, handoff logs, and link/skill checks.',
-          linkLabel: 'Ask My AI About Context Governance →',
-          linkUrl: 'https://ssrqy.cn/',
+          linkLabel: 'View Governance Kit on GitHub →',
+          linkUrl: 'https://github.com/qy70/agent-context-governance',
         },
         {
           title: 'Interactive Digital Twin Portal',
@@ -266,6 +270,8 @@ window.AI_PORTFOLIO_DATA = {
       desc: '我不靠无脑堆长上下文或盲切向量片段赌运气——核心事实留在本地结构化存储里，第一轮仅向模型披露轻量目录映射，由它按需决策后再经确定性工具调回完整原文。',
       legendLlm: '无状态语义推理引擎（意图理解、路由决策与自然生成）',
       legendTool: '确定性工具与外部持久化状态（账本、权限与时间锚点）',
+      repoLabel: '参考代码实现 (GitHub) ↗',
+      repoUrl: 'https://github.com/qy70/directory-first-retrieval',
       tabs: [
         { id: 'directory', label: '我的架构：目录驱动二次调用' },
         { id: 'naive', label: '对比传统方案：长文本硬塞 / 盲切 RAG' },
@@ -348,6 +354,8 @@ window.AI_PORTFOLIO_DATA = {
       kicker: '03 · 企业级工具与大模型解耦工程',
       title: '千羽私域运营工作台（v1.5.0 桌面端架构）',
       desc: '基于 Electron + SQLite (v22) + DeepSeek-Harness 构建的跨行业桌面协同系统，展示我如何划清「确定性代码引擎」与「语义理解 AI 助理」的边界，让 AI 在真实商业流程中安全审计、可迁移复用。',
+      repoLabel: '账本算法参考代码 (GitHub) ↗',
+      repoUrl: 'https://github.com/qy70/integer-cent-ledger',
       diagramTitle: '硬核边界拆解：确定性账本/状态引擎 vs. 只读语义协同层',
       tradeoffs: [
         {
@@ -392,8 +400,8 @@ window.AI_PORTFOLIO_DATA = {
           title: '上下文治理协议（AGENTS.md）与多 AI 编排',
           badge: 'CONTEXT GOVERNANCE · 5 RUNTIMES',
           body: '在 Antigravity / Codex / DeepSeek-Harness / Grokbot / WorkBuddy 多工具协同中建立统一上下文治理规范：开工必读置顶规则、只读原料隔离、倒序交接日志及断链/技能校验脚本，消除多会话协作漂移。',
-          linkLabel: '向主页 AI 追问编排细节 →',
-          linkUrl: 'https://ssrqy.cn/',
+          linkLabel: '访问 GitHub 治理协议仓库 →',
+          linkUrl: 'https://github.com/qy70/agent-context-governance',
         },
         {
           title: '千羽数字分身主站架构',
