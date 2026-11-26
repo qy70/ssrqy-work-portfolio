@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Qianyu · AI Systems & Product Portfolio. Compound AI architecture, Ta (祂) long-memory app, AI Ops Workbench v1.5.0, and multi-agent context governance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Qianyu · AI Systems & Product Portfolio" />
+  <meta property="og:description" content="Compound AI systems, deterministic-tooling architectures, shipped production apps, and multi-agent context governance." />
+  <meta property="og:url" content="https://ssrqy.cn/work/" />
+  <meta property="og:image" content="https://ssrqy.cn/work/assets/wb-xiaoyu.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f46e5'/%3E%3Cstop offset='1' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='26' fill='url(%23g)'/%3E%3Cpath d='M32 18l3.5 10.5L46 32l-10.5 3.5L32 46l-3.5-10.5L18 32l10.5-3.5z' fill='%23fff'/%3E%3C/svg%3E" />
+  <title>Qianyu · AI Systems &amp; Product Portfolio</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#hero">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name" data-i18n="brandName">Qianyu</span>
+        <span class="brand-tag" data-i18n="brandTag">AI Systems Portfolio</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#thesis" data-i18n="navThesis">Philosophy</a>
+        <a href="#ta" data-i18n="navTa">Ta (祂)</a>
+        <a href="#workbench" data-i18n="navWorkbench">Workbench</a>
+        <a href="#harness" data-i18n="navHarness">Agent &amp; OSS</a>
+        <a href="#adaptability" data-i18n="navAdapt">Execution</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <button id="btn-lang" class="ctrl-btn" type="button">EN / 中文</button>
+        <button id="btn-theme" class="ctrl-btn" type="button" aria-label="Toggle theme">Dark</button>
+        <a id="btn-back-ai" class="ai-link-btn" href="https://ssrqy.cn/">
+          <span data-i18n="backToAi">← Chat with My AI</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="container"></main>
+
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+    <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Close">×</button>
+    <figure class="lightbox-fig">
+      <img id="lightbox-img" alt="" />
+      <figcaption id="lightbox-cap"></figcaption>
+    </figure>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
